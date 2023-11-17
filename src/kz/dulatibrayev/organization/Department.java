@@ -4,22 +4,29 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Department {
+	//переменная для хранения имени департамента
 	private String departmentName;
+	//переменная МАССИВ для хранения информации о работниках
 	private Employee[] employees;
 
+//	конструктор может принимать имя подразделения (в этом случае
+//			количество работников = 0);
 	public Department(String departmentName) {
 		this.departmentName = departmentName;
 		employees = new Employee[0];
 	}
 
+//	конструктор может принимать массив работников;
 	public Department(Employee[] employees) {
 		this.employees = employees;
 	}
 
+//	создайте метод получения имени подразделения;
 	public String getDepartmentName() {
 		return departmentName;
 	}
 
+//	создайте метод изменения имени подразделения;
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
@@ -107,14 +114,13 @@ public class Department {
 //	создайте метод, возвращающий массив работников отдела,
 //	отсортированный по фамилиям (и если одинаковые фамилии – то по
 //	именам);
-
 	public void sortEmployeesBySurnameAndName() {
 		EmployeeComparatorbySurnameAndName comparator = new EmployeeComparatorbySurnameAndName();
 		Arrays.sort(employees, comparator);
 	}
 
 }
-
+	//класс для сортировки и использования его в методе sortEmployeesBySurnameAndName
 class EmployeeComparatorbySurnameAndName implements Comparator<Employee> {
 
 	@Override
